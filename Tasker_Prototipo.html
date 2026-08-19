@@ -332,6 +332,128 @@ body{display:flex;flex-direction:column;min-height:100vh}
 .tabs button{flex:1;height:38px;border:0;border-radius:999px;background:none;font:600 13.5px/1 var(--sans);color:var(--gris-700);cursor:pointer}
 .tabs button.on{background:#fff;color:var(--azul);box-shadow:var(--sh-1)}
 main{flex:1}
+
+/* ================= HOME · copiada de Tasker_Home_Desktop_dc.html =================
+   Todo va scopeado bajo .home-dc para no pisar el resto del prototipo.
+   El markup conserva los estilos inline de la referencia, así que los ajustes
+   responsive necesitan !important para ganarle a esos inline. */
+body.on-home .svcbar,
+body.on-home header.site,
+body.on-home footer.site{display:none}
+
+/* La referencia no trae reset de box-sizing ni line-height de body: sus medidas
+   inline están calculadas sobre content-box y line-height normal. Reponemos ese
+   contexto dentro de .home-dc para que las alturas den exactamente igual. */
+.home-dc,.home-dc *{box-sizing:content-box}
+.home-dc button,.home-dc input,.home-dc select,.home-dc textarea{box-sizing:border-box}
+.home-dc{background:#F2F4F7;overflow:hidden;font:400 16px/normal 'Public Sans',system-ui,sans-serif}
+.home-dc a{color:#0055A0;text-decoration:none}
+.home-dc a:hover{color:#00478A;text-decoration:underline}
+.home-dc .ph{background:#EEF1F5;background-image:repeating-linear-gradient(135deg,rgba(0,85,160,.055) 0 8px,transparent 8px 17px);display:grid;place-items:center;text-align:center}
+.home-dc .pht{font:500 10.5px/1.4 ui-monospace,Menlo,monospace;letter-spacing:.04em;color:#5C6270;text-transform:uppercase;padding:0 10px}
+.home-dc .carousel{overflow-x:auto}
+.home-dc .carousel,.home-dc .hd-row{scrollbar-width:none}
+.home-dc .carousel::-webkit-scrollbar,.home-dc .hd-row::-webkit-scrollbar{display:none}
+.home-dc .hd-logo svg,.home-dc .hd-flogo svg{height:36px;width:auto;display:block}
+.home-dc button{font-family:'Public Sans',var(--sans)}
+.home-dc .hd-b:hover{background:#00478A}
+.home-dc .hd-bs:hover{background:#F8F9FB}
+.home-dc .hd-nav a{color:inherit;text-decoration:none}
+.home-dc .hd-nav a:hover{color:#0055A0;text-decoration:none}
+.home-dc .hd-card{color:inherit}
+.home-dc .hd-card:hover{text-decoration:none;color:inherit}
+.home-dc .hd-fl:hover{text-decoration:underline}
+.home-dc .hd-qform{display:contents}
+.home-dc .only-m{display:none}
+
+/* franja intermedia: el shell de 1200 pasa a fluido antes de desbordar */
+@media(max-width:1279px){
+  .home-dc .hd-w{width:100%!important;padding-left:24px!important;padding-right:24px!important}
+  .home-dc .hd-bleed{padding-left:0!important;padding-right:0!important}
+  .home-dc .hd-bleed>.hd-in{padding-left:24px!important;padding-right:24px!important}
+}
+@media(max-width:1023px){
+  .home-dc .hd-catgrid{grid-template-columns:repeat(3,1fr)!important}
+  .home-dc .hd-topgrid{grid-template-columns:repeat(2,1fr)!important}
+  .home-dc .hd-maqgrid{grid-template-columns:repeat(2,1fr)!important}
+  .home-dc .hd-rubrogrid{grid-template-columns:1fr!important;gap:28px!important}
+  .home-dc .hd-servgrid{grid-template-columns:repeat(3,1fr)!important}
+  .home-dc .hd-footgrid{grid-template-columns:1fr 1fr!important;gap:28px!important}
+}
+
+/* ---------- mobile: layout de Tasker_Home_Mobile_390.html ---------- */
+@media(max-width:767px){
+  .home-dc .only-d{display:none!important}
+  .home-dc .only-m{display:block}
+  .home-dc .hd-w{padding-left:16px!important;padding-right:16px!important}
+  .home-dc .hd-bleed>.hd-in{padding-left:16px!important;padding-right:16px!important}
+  .home-dc .hd-row{display:flex!important;gap:12px!important;overflow-x:auto!important;padding:0 16px 4px!important;margin:0!important}
+  .home-dc .hd-row>*{flex:none!important}
+
+  /* header */
+  .home-dc .hd-svc{display:none!important}
+  .home-dc .hd-headrow{flex-wrap:wrap!important;gap:10px!important;padding:8px 0 10px!important}
+  .home-dc .hd-logo svg{width:138px!important;height:auto!important}
+  .home-dc .hd-search{order:3!important;flex:0 0 100%!important}
+  .home-dc .hd-searchbox{height:42px!important;padding:0 14px!important}
+  .home-dc .hd-searchbox input{font-size:13.5px!important}
+  .home-dc .hd-gobtn{display:none!important}
+  .home-dc .hd-acts{margin-left:auto!important}
+  .home-dc .hd-acts>*{border-radius:999px!important;height:44px!important;padding:0 14px!important;font-size:12.5px!important}
+  .home-dc .hd-carttotal{display:none!important}
+  .home-dc .hd-nav{gap:18px!important;overflow-x:auto!important;padding-bottom:10px!important;font-size:12.5px!important}
+  .home-dc .hd-nav>*{white-space:nowrap!important}
+  .home-dc .hd-salsas,.home-dc .hd-navright{display:none!important}
+
+  /* hero */
+  .home-dc .hd-herogrid{grid-template-columns:1fr!important;gap:0!important;padding:22px 16px 0!important}
+  .home-dc .hd-heromshot{height:212px}
+  .home-dc .hd-hero h1{font:800 27px/1.15 'Archivo',sans-serif!important;letter-spacing:-.025em!important}
+  .home-dc .hd-hero p{font-size:14.5px!important;line-height:1.5!important}
+  .home-dc .hd-herocards{gap:10px!important;margin-top:2px!important}
+  .home-dc .hd-herocards>div{padding:14px 14px 13px!important;border-radius:12px!important;min-height:104px;gap:6px!important}
+  .home-dc .hd-doorttl{display:none!important}
+  .home-dc .hd-doortxt{font-size:12.5px!important;line-height:1.45!important}
+  .home-dc .hd-doorbtn{height:auto!important;background:none!important;border:0!important;color:#0055A0!important;justify-content:flex-start!important;font:600 13px/1 'Public Sans',sans-serif!important;margin-top:0!important}
+  .home-dc .hd-wavem{margin:6px -16px 0}
+
+  /* secciones */
+  .home-dc .hd-sec{padding:26px 0 6px!important;gap:14px!important}
+  .home-dc .hd-sec h2{font:700 20px/1.2 'Archivo',sans-serif!important;letter-spacing:-.02em!important}
+  .home-dc .hd-subttl{display:none!important}
+  .home-dc .hd-seelink{font-size:12.5px!important}
+  .home-dc .hd-catlink{display:none!important}
+  .home-dc .hd-catgrid{grid-template-columns:1fr 1fr!important;gap:12px!important}
+  .home-dc .hd-catgrid .ph{height:112px!important}
+  .home-dc .hd-catgrid .hd-cattxt{padding:10px 12px 12px!important}
+  .home-dc .hd-catgrid .hd-cattxt b{font-size:13.5px!important}
+  .home-dc .hd-catgrid .hd-cattxt span{font-size:11.5px!important}
+  .home-dc .hd-ofarrows{display:none!important}
+  .home-dc .hd-ofbanners>*{width:326px!important;height:170px!important}
+  .home-dc .hd-ofcombos>*{width:232px!important}
+  .home-dc .hd-topgrid>*{width:214px!important}
+  .home-dc .hd-topgrid .ph{height:150px!important}
+  .home-dc .hd-unit{display:none!important}
+  .home-dc .hd-maqgrid>*{width:232px!important}
+  .home-dc .hd-maqgrid .ph{height:168px!important}
+  .home-dc .hd-maqsub{display:block!important;padding:0 16px 12px!important;margin:0!important;font:400 13px/1.5 'Public Sans',sans-serif!important;color:#5C6270!important}
+  .home-dc .hd-consultar{display:none!important}
+  .home-dc .hd-price{font-size:20px!important}
+  .home-dc .hd-cardbody{padding:12px!important;gap:7px!important}
+  .home-dc .hd-cardbody .hd-nm{font-size:14px!important;height:19px!important}
+
+  /* rubro / cómo comprar / servicios / footer */
+  .home-dc .hd-rubro{margin-top:26px!important}
+  .home-dc .hd-rubrogrid{padding:0 0 24px!important;gap:14px!important}
+  .home-dc .hd-rubroinner{grid-template-columns:1fr 1fr!important;gap:12px!important}
+  .home-dc .hd-rubroinner .ph{height:72px!important}
+  .home-dc .hd-comogrid{grid-template-columns:1fr!important;gap:0!important}
+  .home-dc .hd-servgrid{grid-template-columns:1fr 1fr!important;gap:14px!important;padding:20px 16px!important}
+  .home-dc .hd-footgrid{grid-template-columns:1fr 1fr!important;gap:20px!important}
+  .home-dc .hd-flogo{grid-column:1/-1}
+  .home-dc .hd-footlegal{flex-direction:column!important;gap:6px!important}
+  .home-dc .hd-bar{display:flex!important;position:sticky;bottom:0;z-index:25;background:rgba(255,255,255,.97);border-top:1px solid #E4E7EC;padding:10px 16px 14px;gap:10px}
+}
 </style>
 </head>
 <body>
@@ -364,7 +486,7 @@ main{flex:1}
       </div>
       <div class="acts">
         <button class="chipbtn" id="btnLogin" aria-label="Ingresar o crear cuenta">Ingresar</button>
-        <button class="chipbtn cart" id="btnCart" aria-label="Ver el carrito">Carrito <span class="badge" id="cartN" aria-label="ítems en el carrito">0</span><span class="cart-total tabular" id="cartT">$ 0</span></button>
+        <button class="chipbtn cart" id="btnCart" aria-label="Ver el carrito">Carrito <span class="badge js-cartN" id="cartN" aria-label="ítems en el carrito">0</span><span class="cart-total tabular js-cartT" id="cartT">$ 0</span></button>
       </div>
     </div>
     <nav class="main" id="nav">
@@ -587,7 +709,19 @@ function inCart(id){var f=fmtOf(byId(id));for(var i=0;i<state.cart.length;i++){i
 function paintCart(){
   var n=0,t=0;
   for(var i=0;i<state.cart.length;i++){n+=state.cart[i].q;t+=state.cart[i].q*state.cart[i].price}
-  $('#cartN').textContent=n; $('#cartT').textContent=money(t);
+  var nn=document.querySelectorAll('.js-cartN'), tt=document.querySelectorAll('.js-cartT');
+  for(var a=0;a<nn.length;a++) nn[a].textContent=n;
+  for(var b=0;b<tt.length;b++) tt[b].textContent=money(t);
+}
+
+/* Clona un logo SVG ya presente en el chrome global (header o footer) y le
+   prefija los ids internos para no duplicarlos en el documento. */
+function logoSVG(cls,tag){
+  var el=document.querySelector('.'+cls);
+  if(!el) return '';
+  return el.outerHTML
+    .replace(/id="([^"]+)"/g,'id="'+tag+'-$1"')
+    .replace(/url\(#([^)]+)\)/g,'url(#'+tag+'-$1)');
 }
 
 /* ---------- buscador ---------- */
@@ -790,35 +924,335 @@ function viewStub(t,d){
 
 
 /* ================= HOME ================= */
-function viewHome(){
-  var destacados=P.filter(function(p){return LIST_INSUMOS.indexOf(p.id)>-1});
-  var tiles=[['cremas','Cremas para soft','Tetrapack 5 L · 12 sabores','cremas tetrapack'],
-             ['polvos','Polvo para soft','Bolsa 2 kg · rinde 12 L','polvo en bolsa'],
-             ['granitas','Granitas','Tropicales y extremos','vaso de granita'],
-             ['salsas','Salsas y toppings','Baldes y pomos','salsas y toppings'],
-             ['descartables','Conos y vasos','Descartables por caja','conos y vasos'],
-             ['maquinas','Máquinas','Soft y granita · en cuotas','máquina en mostrador']];
-  return '<section class="hero"><div class="shell"><div class="in">'+
-      '<div style="display:flex;flex-direction:column;gap:14px">'+
-        '<span class="overline" style="color:#8FC0E6">30 años · fabricación argentina</span>'+
-        '<h1>Tenemos todo lo que necesitás para comenzar tu negocio</h1>'+
-        '<p>Cremas y polvos con leche fluida, granitas, descartables y máquinas de importación directa.</p>'+
-        '<div class="doors">'+
-          '<a class="door" href="#/insumos"><span class="overline">Insumos</span><h3>Comprar insumos</h3><p>Cremas y polvos para soft, granitas, salsas, conos y vasos. Reposición en 48 h.</p><span class="btn">Ver el catálogo</span></a>'+
-          '<a class="door" href="#/maquinas"><span class="overline">Máquinas</span><h3>Comprar una máquina</h3><p>Soft y granita, en cuotas, con instalación y service propio.</p><span class="btn sec">Ver máquinas</span></a>'+
+/* ================= HOME =================
+   Copia de Tasker_Home_Desktop_dc.html, sección por sección, conservando su
+   HTML y sus estilos inline. Adaptaciones: logos SVG inline del prototipo en
+   lugar de las etiquetas img a assets/, sin Google Fonts ni support.js, y links
+   apuntando al ruteo por hash. Debajo de 768 px manda el layout de
+   Tasker_Home_Mobile_390.html vía las media queries de .home-dc.           */
+
+var HD_F1="'Public Sans',sans-serif", HD_F2="'Archivo',sans-serif";
+
+/* placeholder de foto con el mismo formato que la referencia */
+function hph(txt,cls,style){
+  return '<div class="ph'+(cls?' '+cls:'')+'"'+(style?' style="'+style+'"':'')+'><span class="pht">'+txt+'</span></div>';
+}
+
+/* --- curvas de crema: paths tal cual la referencia, con preserveAspectRatio="none" --- */
+function hdWaveShot(){
+  return '<svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="position:absolute;left:0;right:0;bottom:0;display:block;width:100%;height:60px" aria-hidden="true"><path d="M0,28 C180,14 320,40 520,36 C760,31 900,10 1120,18 C1280,24 1360,34 1440,30 V60 H0 Z" fill="#86B6DA"></path><path d="M0,36 C220,24 380,48 620,44 C840,40 1000,22 1210,30 C1330,35 1390,42 1440,38 V60 H0 Z" fill="#2A82C9"></path><path d="M0,45 C260,35 420,55 700,51 C940,47 1120,33 1330,41 C1390,43 1420,47 1440,46 V60 H0 Z" fill="#0055A0"></path></svg>';
+}
+function hdWaveHeroD(){
+  return '<svg viewBox="0 0 1440 72" preserveAspectRatio="none" style="display:block;width:100%;height:55px" aria-hidden="true"><path d="M0,28 C180,14 320,40 520,36 C760,31 900,10 1120,18 C1280,24 1360,34 1440,30 L1440,58 C1230,52 1010,67 720,63 C470,59 210,52 0,57 Z" fill="#0055A0"></path><path d="M0,36 C220,24 380,48 620,44 C840,40 1000,22 1210,30 C1330,35 1390,42 1440,38 L1440,58 C1230,52 1010,67 720,63 C470,59 210,52 0,57 Z" fill="#2A82C9"></path><path d="M0,45 C260,35 420,55 700,51 C940,47 1120,33 1330,41 C1390,43 1420,47 1440,46 L1440,58 C1230,52 1010,67 720,63 C470,59 210,52 0,57 Z" fill="#86B6DA"></path><path d="M0,57 C210,52 470,59 720,63 C1010,67 1230,52 1440,58 V72 H0 Z" fill="#F2F4F7"></path></svg>';
+}
+function hdWaveHeroM(){
+  return '<svg viewBox="0 0 390 36" preserveAspectRatio="none" style="display:block;width:100%;height:36px" aria-hidden="true"><path d="M0,13 C70,9 120,19 180,17.5 C250,15.5 300,8.5 355,11.5 C372,12.5 382,15 390,13.5 L390,28 C330,25 275,33 185,30.5 C115,28.5 45,25 0,27.5 Z" fill="#0055A0"></path><path d="M0,17.5 C80,13.5 140,22 210,21 C280,19.5 320,13 365,16 C378,17 384,19.5 390,18.5 L390,28 C330,25 275,33 185,30.5 C115,28.5 45,25 0,27.5 Z" fill="#2A82C9"></path><path d="M0,22.5 C90,19 150,26.5 235,24.5 C300,23 350,18.5 390,21.5 L390,28 C330,25 275,33 185,30.5 C115,28.5 45,25 0,27.5 Z" fill="#86B6DA"></path><path d="M0,27.5 C45,25 115,28.5 185,30.5 C275,33 330,25 390,28 V36 H0 Z" fill="#F2F4F7"></path></svg>';
+}
+function hdWaveFootD(){
+  return '<svg viewBox="0 0 1440 60" preserveAspectRatio="none" style="display:block;width:100%;height:46px" aria-hidden="true"><g transform="translate(0,60) scale(1,-1)"><path d="M0,28 C180,14 320,40 520,36 C760,31 900,10 1120,18 C1280,24 1360,34 1440,30 V60 H0 Z" fill="#E4E7EC"></path><path d="M0,36 C220,24 380,48 620,44 C840,40 1000,22 1210,30 C1330,35 1390,42 1440,38 V60 H0 Z" fill="#F2F4F7"></path><path d="M0,45 C260,35 420,55 700,51 C940,47 1120,33 1330,41 C1390,43 1420,47 1440,46 V60 H0 Z" fill="#FFFFFF"></path></g></svg>';
+}
+function hdWaveFootM(){
+  return '<svg viewBox="0 0 390 30" preserveAspectRatio="none" style="display:block;width:100%;height:24px" aria-hidden="true"><g transform="translate(0,30) scale(1,-1)"><path d="M0,13 C70,9 120,19 180,17.5 C250,15.5 300,8.5 355,11.5 C372,12.5 382,15 390,13.5 V30 H0 Z" fill="#E4E7EC"></path><path d="M0,17.5 C80,13.5 140,22 210,21 C280,19.5 320,13 365,16 C378,17 384,19.5 390,18.5 V30 H0 Z" fill="#F2F4F7"></path><path d="M0,22.5 C90,19 150,26.5 235,24.5 C300,23 350,18.5 390,21.5 V30 H0 Z" fill="#FFFFFF"></path></g></svg>';
+}
+
+/* --- chrome propio de la home (el global queda oculto con body.on-home) --- */
+function hdHeader(){
+  var nav=[['Insumos','#/insumos',1,''],['Máquinas','#/maquinas',0,''],['Granitas','#/granitas',0,''],
+           ['Salsas y toppings','#/salsas',0,'hd-salsas'],['Ofertas','#/ofertas',0,''],['Sobre nosotros','#/nosotros',0,'']];
+  return '<div class="hd-svc" style="background:#003466;height:36px;display:flex;align-items:center;justify-content:center;gap:28px;font:500 12px/1 '+HD_F1+';color:#A9C7E4">'+
+      '<span>Envío a todo el país · 48 h en AMBA</span><span style="color:#14477D">|</span><span>Hasta 12 cuotas con todas las tarjetas</span><span style="color:#14477D">|</span><span>30 años fabricando en Argentina</span>'+
+    '</div>'+
+    '<div class="hd-head" style="position:sticky;top:0;z-index:30;background:#fff;border-bottom:1px solid #E4E7EC">'+
+      '<div class="hd-w hd-headrow" style="width:1200px;margin:0 auto;display:flex;align-items:center;gap:32px;padding:16px 0">'+
+        '<a class="hd-logo" href="#/home" aria-label="Tasker · ir a la portada" style="flex:none">'+logoSVG('logo-claro','hd')+'</a>'+
+        '<form class="hd-search" data-hq="1" style="flex:1;margin:0">'+
+          '<div class="hd-searchbox" style="height:46px;border:1.5px solid #E4E7EC;border-radius:8px;display:flex;align-items:center;justify-content:space-between;padding:0 6px 0 16px">'+
+            '<input type="search" aria-label="Buscar" placeholder="Buscá cremas, polvos, granitas, conos, máquinas…" style="flex:1;min-width:0;border:0;outline:0;background:none;font:400 14px/1 '+HD_F1+';color:#14161C">'+
+            '<button class="hd-gobtn" type="submit" style="height:34px;padding:0 18px;border:0;border-radius:6px;background:#0055A0;color:#fff;display:inline-flex;align-items:center;font:600 13px/1 '+HD_F1+';cursor:pointer">Buscar</button>'+
+          '</div>'+
+        '</form>'+
+        '<div class="hd-acts" style="display:flex;align-items:center;gap:10px;flex:none">'+
+          '<button class="js-login" style="height:44px;display:inline-flex;align-items:center;padding:0 16px;border-radius:8px;border:1.5px solid #E4E7EC;background:#fff;font:600 13.5px/1 '+HD_F1+';color:#45495A;cursor:pointer">Ingresar</button>'+
+          '<button data-go="#/carrito" style="height:44px;display:inline-flex;align-items:center;gap:9px;padding:0 16px;border:0;border-radius:8px;background:#EEF6FC;font:600 13.5px/1 '+HD_F1+';color:#0055A0;cursor:pointer">Carrito<span class="js-cartN" style="min-width:20px;height:20px;border-radius:999px;background:#0055A0;color:#fff;display:inline-grid;place-items:center;font:700 11px/1 '+HD_F1+'">0</span><span class="hd-carttotal js-cartT" style="font-variant-numeric:tabular-nums">$ 0</span></button>'+
         '</div>'+
       '</div>'+
-      '<div class="shotwrap">'+ph('helado soft en cono sobre fondo claro')+'</div>'+
-    '</div></div></section>'+
-    '<div class="shell">'+
-      '<div class="section-h"><h2>Categorías</h2><a href="#/insumos">Ver el catálogo completo</a></div>'+
-      '<div class="tiles">'+tiles.map(function(t){
-        return '<a class="tile" href="#/'+(t[0]==='maquinas'?'maquinas':'insumos')+'">'+ph(t[3])+'<span class="t"><b>'+esc(t[1])+'</b><span>'+esc(t[2])+'</span></span></a>';
-      }).join('')+'</div>'+
-      bannerHTML()+
-      '<div class="section-h"><h2>Los más pedidos</h2><a href="#/insumos">Ver todo</a></div>'+
-      '<div class="grid" style="padding-bottom:44px">'+destacados.map(cardHTML).join('')+'</div>'+
+      '<nav class="hd-w hd-nav" style="width:1200px;margin:0 auto;display:flex;gap:30px;padding:0 0 12px;font:600 13.5px/1 '+HD_F1+';color:#45495A">'+
+        nav.map(function(n){
+          return '<a href="'+n[1]+'" class="'+n[3]+'" style="padding-bottom:8px;white-space:nowrap'+(n[2]?';color:#0055A0;border-bottom:2px solid #0055A0':'')+'">'+esc(n[0])+'</a>';
+        }).join('')+
+        '<a class="hd-navright" href="#/volver" style="margin-left:auto;padding-bottom:8px;color:#0055A0">Volver a pedir</a>'+
+      '</nav>'+
     '</div>';
+}
+
+function hdHero(){
+  return '<div class="hd-heromshot only-m ph" style="height:212px"><span class="pht">foto — helado soft en cono,<br>fondo claro, vertical 390 × 212</span></div>'+
+    '<div class="hd-hero" style="background:#0055A0;position:relative">'+
+      '<div class="hd-w hd-herogrid" style="width:1200px;margin:0 auto;padding:56px 0 44px;display:grid;grid-template-columns:1fr 468px;gap:56px;align-items:center">'+
+        '<div style="display:flex;flex-direction:column;gap:18px">'+
+          '<span style="font:700 11.5px/1 '+HD_F1+';letter-spacing:.16em;text-transform:uppercase;color:#8FC0E6">30 años · fabricación argentina</span>'+
+          '<h1 style="margin:0;font:800 46px/1.06 '+HD_F2+';letter-spacing:-.028em;color:#fff;text-wrap:pretty;max-width:620px">Tenemos todo lo que necesitás para comenzar tu negocio</h1>'+
+          '<p style="margin:0;font:400 17px/1.55 '+HD_F1+';color:#D9EAF7;max-width:520px">Cremas y polvos con leche fluida, granitas, descartables y máquinas de importación directa. Comenzá un negocio rentable y de baja inversión.</p>'+
+          '<div class="hd-herocards" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:10px">'+
+            '<div style="background:#fff;border-radius:14px;padding:22px 22px 20px;display:flex;flex-direction:column;gap:9px">'+
+              '<span style="font:700 11px/1 '+HD_F1+';letter-spacing:.14em;text-transform:uppercase;color:#0055A0">Insumos</span>'+
+              '<span class="hd-doorttl" style="font:700 20px/1.2 '+HD_F2+';letter-spacing:-.015em;color:#14161C">Comprar insumos</span>'+
+              '<span class="hd-doortxt" style="font:400 13.5px/1.5 '+HD_F1+';color:#45495A;flex:1">Cremas y polvos para soft, granitas, salsas, conos y vasos. Reposición en 48 h.</span>'+
+              '<a class="hd-doorbtn hd-b" href="#/insumos" style="height:44px;border-radius:8px;background:#0055A0;color:#fff;display:inline-flex;align-items:center;justify-content:center;font:600 14.5px/1 '+HD_F1+';margin-top:4px">Ver el catálogo</a>'+
+            '</div>'+
+            '<div style="background:#fff;border-radius:14px;padding:22px 22px 20px;display:flex;flex-direction:column;gap:9px">'+
+              '<span style="font:700 11px/1 '+HD_F1+';letter-spacing:.14em;text-transform:uppercase;color:#0055A0">Máquinas</span>'+
+              '<span class="hd-doorttl" style="font:700 20px/1.2 '+HD_F2+';letter-spacing:-.015em;color:#14161C">Comprar una máquina</span>'+
+              '<span class="hd-doortxt" style="font:400 13.5px/1.5 '+HD_F1+';color:#45495A;flex:1">Soft y granita, importación directa, en cuotas, con instalación y service propio.</span>'+
+              '<a class="hd-doorbtn hd-bs" href="#/maquinas" style="height:44px;border-radius:8px;border:1.5px solid #0055A0;color:#0055A0;display:inline-flex;align-items:center;justify-content:center;font:600 14.5px/1 '+HD_F1+';margin-top:4px">Ver máquinas</a>'+
+            '</div>'+
+          '</div>'+
+        '</div>'+
+        '<div class="only-d" style="border-radius:16px 16px 0 0;overflow:hidden"><div style="position:relative;height:452px;border-radius:0;overflow:hidden"><div class="ph" style="position:absolute;inset:0"><span class="pht">foto — helado soft en cono<br>sobre fondo claro<br>468 × 452</span></div>'+hdWaveShot()+'</div></div>'+
+      '</div>'+
+      '<div class="hd-wavem only-m">'+hdWaveHeroM()+'</div>'+
+      '<div class="only-d">'+hdWaveHeroD()+'</div>'+
+    '</div>';
+}
+
+function hdCategorias(){
+  var tiles=[['Cremas para soft','Tetrapack 5 L · 12 sabores','cremas<br>tetrapack','#/insumos'],
+             ['Polvo para soft','Bolsa 2 kg · rinde 12 L','polvo en<br>bolsa','#/insumos'],
+             ['Granitas','Tropicales y extremos','vaso de<br>granita','#/granitas'],
+             ['Salsas y toppings','Baldes y pomos','salsas y<br>toppings','#/salsas'],
+             ['Conos y vasos','Descartables por caja','conos y<br>vasos','#/insumos'],
+             ['Máquinas','Soft y granita · en cuotas','máquina<br>mostrador','#/maquinas']];
+  return '<div class="hd-w hd-sec" style="width:1200px;margin:0 auto;padding:44px 0 0;display:flex;flex-direction:column;gap:20px">'+
+      '<div style="display:flex;align-items:baseline;justify-content:space-between">'+
+        '<h2 style="margin:0;font:700 26px/1.15 '+HD_F2+';letter-spacing:-.02em;color:#14161C">Categorías</h2>'+
+        '<a class="hd-seelink hd-catlink hd-fl" href="#/insumos" style="font:600 13.5px/1 '+HD_F1+';color:#0055A0">Ver el catálogo completo</a>'+
+      '</div>'+
+      '<div class="hd-catgrid" style="display:grid;grid-template-columns:repeat(6,1fr);gap:20px">'+
+        tiles.map(function(t){
+          return '<a class="hd-card" href="'+t[3]+'" style="background:#fff;border:1px solid #E4E7EC;border-radius:14px;overflow:hidden;display:block">'+
+            hph('foto —<br>'+t[2],'','height:150px;border-radius:14px 14px 0 0')+
+            '<div class="hd-cattxt" style="padding:12px 14px 16px"><b style="font:600 14px/1.3 '+HD_F1+';color:#14161C">'+esc(t[0])+'</b><br><span style="font:400 12px/1.4 '+HD_F1+';color:#5C6270">'+esc(t[1])+'</span></div>'+
+          '</a>';
+        }).join('')+
+      '</div>'+
+    '</div>';
+}
+
+function hdOfertas(){
+  var banners=['oferta 1<br>banner de temporada · 580 × 264','oferta 2<br>combo de arranque · 580 × 264','oferta 3<br>liquidación de granitas · 580 × 264'];
+  return '<div class="hd-w hd-sec hd-bleed" style="width:1200px;margin:0 auto;padding:56px 0 0;display:flex;flex-direction:column;gap:20px">'+
+      '<div class="hd-in" style="display:flex;align-items:baseline;justify-content:space-between">'+
+        '<div style="display:flex;align-items:baseline;gap:16px">'+
+          '<h2 style="margin:0;font:700 26px/1.15 '+HD_F2+';letter-spacing:-.02em;color:#14161C">Ofertas</h2>'+
+          '<span class="hd-subttl" style="font:400 14px/1.4 '+HD_F1+';color:#5C6270">Combos armados y precios de temporada, mientras dure el stock</span>'+
+        '</div>'+
+        '<div style="display:flex;align-items:center;gap:10px">'+
+          '<a class="hd-seelink hd-fl" href="#/ofertas" style="font:600 13.5px/1 '+HD_F1+';color:#0055A0">Ver todas</a>'+
+          '<div class="hd-ofarrows" style="display:flex;gap:10px">'+
+            '<button class="hd-bs" data-hscroll="-1" style="width:40px;height:40px;border:1.5px solid #E4E7EC;border-radius:999px;background:#fff;color:#45495A;font:600 15px/1 '+HD_F1+';cursor:pointer">‹</button>'+
+            '<button class="hd-bs" data-hscroll="1" style="width:40px;height:40px;border:1.5px solid #E4E7EC;border-radius:999px;background:#fff;color:#45495A;font:600 15px/1 '+HD_F1+';cursor:pointer">›</button>'+
+          '</div>'+
+        '</div>'+
+      '</div>'+
+      '<div class="carousel hd-row hd-ofbanners" style="display:flex;gap:20px">'+
+        banners.map(function(b){return '<a class="hd-card" href="#/ofertas" style="flex:none;display:block">'+hph('foto — '+b,'','width:580px;height:264px;border-radius:12px')+'</a>'}).join('')+
+      '</div>'+
+      '<div class="hd-in" style="display:flex;gap:8px;align-items:center">'+
+        '<span style="width:26px;height:4px;border-radius:999px;background:#0055A0"></span>'+
+        '<span style="width:10px;height:4px;border-radius:999px;background:#C9CDD6"></span>'+
+        '<span style="width:10px;height:4px;border-radius:999px;background:#C9CDD6"></span>'+
+      '</div>'+
+      '<div class="hd-ofcombos hd-row" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:8px;align-items:stretch">'+
+        COMBOS.map(function(c){
+          return '<div data-go="#/ofertas" style="cursor:pointer;background:#fff;border:1px solid #E4E7EC;border-radius:12px;overflow:hidden;display:flex;flex-direction:column">'+
+            '<div style="position:relative">'+hph('foto — '+esc(c.photo),'','height:170px')+'<span style="position:absolute;left:12px;top:12px;padding:6px 11px;border-radius:999px;background:#0055A0;color:#fff;font:700 11.5px/1 '+HD_F1+';white-space:nowrap">−'+c.off+' %</span></div>'+
+            '<div class="hd-cardbody" style="padding:16px;display:flex;flex-direction:column;gap:9px;flex:1">'+
+              '<span style="font:700 10.5px/1 '+HD_F1+';letter-spacing:.14em;text-transform:uppercase;color:#0055A0">Combo</span>'+
+              '<span class="hd-nm" style="font:600 16px/1.32 '+HD_F1+';color:#14161C;height:21px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1;overflow:hidden">'+esc(c.n)+'</span>'+
+              '<div style="display:flex;flex-direction:column;gap:5px">'+c.items.map(function(i){return '<span style="font:400 13px/1.4 '+HD_F1+';color:#5C6270">'+esc(i)+'</span>'}).join('')+'</div>'+
+              '<div style="display:flex;align-items:baseline;gap:9px;margin-top:2px"><span class="hd-price" style="font:700 24px/1 '+HD_F2+';letter-spacing:-.02em;color:#14161C;font-variant-numeric:tabular-nums">'+money(c.price)+'</span><span style="font:400 13px/1 '+HD_F1+';color:#5C6270;text-decoration:line-through;font-variant-numeric:tabular-nums">'+money(c.was)+'</span></div>'+
+              '<span style="font:600 13.5px/1.3 '+HD_F1+';color:#0055A0;font-variant-numeric:tabular-nums">12 cuotas de '+money(Math.round(c.price/12))+'</span>'+
+              '<button class="hd-b" data-combo="'+c.id+'" style="height:44px;border:0;border-radius:8px;background:#0055A0;color:#fff;font:600 14.5px/1 '+HD_F1+';margin-top:auto;cursor:pointer">Agregar el combo</button>'+
+            '</div>'+
+          '</div>';
+        }).join('')+
+      '</div>'+
+    '</div>';
+}
+
+function hdPedidos(){
+  var cards=[
+    ['p4','Crema soft','Helado soft vainilla','Leche fluida · sin grasas vegetales','tetrapack<br>crema vainilla 5 L','Vainilla','#0055A0',['Tetrapack 5 L','Caja x 12'],'$ 18.900','por unidad','3 cuotas sin interés de $ 6.300','ok','En stock · entrega en 48 h'],
+    ['p6','Polvo soft','Helado soft dulce de leche','Leche fluida · sin grasas vegetales','bolsa polvo<br>dulce de leche 2 kg','Dulce de leche','#B26A00',['Bolsa 2 kg','Caja x 10'],'$ 12.400','por unidad','3 cuotas sin interés de $ 4.133','bajo','Últimas 8 unidades'],
+    ['p3','Granita','Granita frutilla','Rinde 1 + 5 · listo para máquina','granita<br>frutilla en vaso','Frutilla','#E8384F',['Botella 1 L','Caja x 6'],'$ 9.700','por unidad','3 cuotas sin interés de $ 3.233','ok','En stock · entrega en 48 h'],
+    ['p14','Descartables','Cono de galleta n.º 3','Crocante · borde reforzado','caja de conos<br>de galleta','','',['Caja x 300','Pack x 6 cajas'],'$ 21.500','por caja','3 cuotas sin interés de $ 7.166','ok','En stock · entrega en 48 h']
+  ];
+  return '<div class="hd-w hd-sec hd-bleed" style="width:1200px;margin:0 auto;padding:56px 0 0;display:flex;flex-direction:column;gap:20px">'+
+      '<div class="hd-in" style="display:flex;align-items:baseline;justify-content:space-between">'+
+        '<div style="display:flex;align-items:baseline;gap:16px">'+
+          '<h2 style="margin:0;font:700 26px/1.15 '+HD_F2+';letter-spacing:-.02em;color:#14161C">Los más pedidos</h2>'+
+          '<span class="hd-subttl" style="font:400 14px/1.4 '+HD_F1+';color:#5C6270">Lo que reponen todas las semanas nuestros clientes</span>'+
+        '</div>'+
+        '<a class="hd-seelink hd-fl" href="#/insumos" style="font:600 13.5px/1 '+HD_F1+';color:#0055A0">Ver todo</a>'+
+      '</div>'+
+      '<div class="hd-topgrid hd-row" style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;align-items:stretch">'+
+        cards.map(function(c){
+          var col=c[11]==='ok'?'#12784A':'#B26A00';
+          var badge=c[5]
+            ? '<span style="position:absolute;left:12px;top:12px;display:inline-flex;align-items:center;gap:7px;padding:6px 11px 6px 9px;border-radius:999px;background:rgba(255,255,255,.94);font:600 11.5px/1 '+HD_F1+';color:#45495A"><span style="width:8px;height:8px;border-radius:50%;background:'+c[6]+'"></span>'+esc(c[5])+'</span>'
+            : '<span style="position:absolute;left:12px;top:12px;display:inline-flex;align-items:center;gap:7px;padding:6px 11px;border-radius:999px;background:rgba(255,255,255,.94);font:600 11.5px/1 '+HD_F1+';color:#45495A">Nuevo</span>';
+          return '<div data-go="#/producto/'+c[0]+'" style="cursor:pointer;background:#fff;border:1px solid #E4E7EC;border-radius:12px;overflow:hidden;display:flex;flex-direction:column">'+
+            '<div class="ph" style="height:246px;position:relative"><span class="pht">foto — '+c[4]+'</span>'+badge+'</div>'+
+            '<div class="hd-cardbody" style="padding:16px;display:flex;flex-direction:column;gap:9px;flex:1">'+
+              '<span style="font:700 10.5px/1 '+HD_F1+';letter-spacing:.14em;text-transform:uppercase;color:#0055A0">'+esc(c[1])+'</span>'+
+              '<span class="hd-nm" style="font:600 16px/1.32 '+HD_F1+';color:#14161C;height:21px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:1;overflow:hidden">'+esc(c[2])+'</span>'+
+              '<span style="font:400 13px/1.4 '+HD_F1+';color:#5C6270;height:18px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis">'+esc(c[3])+'</span>'+
+              '<div style="display:flex;gap:8px"><span style="padding:7px 12px;border-radius:999px;border:1.5px solid #0055A0;background:#EEF6FC;font:600 12px/1 '+HD_F1+';color:#0055A0">'+esc(c[7][0])+'</span><span style="padding:7px 12px;border-radius:999px;border:1.5px solid #E4E7EC;font:600 12px/1 '+HD_F1+';color:#45495A">'+esc(c[7][1])+'</span></div>'+
+              '<div style="display:flex;align-items:baseline;gap:9px;margin-top:2px"><span class="hd-price" style="font:700 24px/1 '+HD_F2+';letter-spacing:-.02em;color:#14161C;font-variant-numeric:tabular-nums">'+c[8]+'</span><span class="hd-unit" style="font:400 12.5px/1 '+HD_F1+';color:#5C6270">'+esc(c[9])+'</span></div>'+
+              '<span style="font:600 13.5px/1.3 '+HD_F1+';color:#0055A0;font-variant-numeric:tabular-nums">'+esc(c[10])+'</span>'+
+              '<span style="display:inline-flex;align-items:center;gap:7px;font:500 12.5px/1 '+HD_F1+';color:'+col+'"><span style="width:7px;height:7px;border-radius:50%;background:'+col+'"></span>'+esc(c[12])+'</span>'+
+              '<div style="display:flex;gap:8px;margin-top:auto;padding-top:4px">'+
+                '<div style="display:inline-flex;align-items:center;border:1.5px solid #E4E7EC;border-radius:8px;height:44px;flex:none"><button data-step="-1" data-id="'+c[0]+'" style="width:36px;height:44px;border:0;background:#fff;color:#45495A;font:600 18px/1 '+HD_F1+';border-radius:8px 0 0 8px;cursor:pointer">−</button><span style="min-width:26px;text-align:center;font:600 14.5px/1 '+HD_F1+';color:#14161C;font-variant-numeric:tabular-nums">'+(state.qty[c[0]]||1)+'</span><button data-step="1" data-id="'+c[0]+'" style="width:36px;height:44px;border:0;background:#fff;color:#45495A;font:600 18px/1 '+HD_F1+';border-radius:0 8px 8px 0;cursor:pointer">+</button></div>'+
+                '<button class="hd-b" data-add="'+c[0]+'" style="flex:1;height:44px;border:0;border-radius:8px;background:#0055A0;color:#fff;font:600 14.5px/1 '+HD_F1+';cursor:pointer">'+(inCart(c[0])?'✓ En el carrito':'Agregar')+'</button>'+
+              '</div>'+
+            '</div>'+
+          '</div>';
+        }).join('')+
+      '</div>'+
+    '</div>';
+}
+
+function hdMaquinas(){
+  var maq=[
+    ['#/maquina/m1','Soft · mostrador','Máquina helado soft 1','2 sabores + mixto · ficha técnica a completar con datos reales','máquina helado soft 1','$ 2.450.000','12 cuotas de $ 204.166','ok','Entrega en 10 días · instalación incluida'],
+    ['#/maquinas','Soft · mostrador','Máquina helado soft 2','2 sabores + mixto · ficha técnica a completar con datos reales','máquina helado soft 2','$ 3.180.000','12 cuotas de $ 265.000','ok','Entrega en 10 días · instalación incluida'],
+    ['#/maquina/m2','Soft · piso','Máquina helado soft 3','Alta producción · ficha técnica a completar con datos reales','máquina helado soft 3','$ 4.900.000','12 cuotas de $ 408.333','bajo','A pedido · 30 días'],
+    ['#/maquina/m3','Granita · 2 tolvas','Máquina de granita 1','2 × 12 L · ficha técnica a completar con datos reales','máquina de granita 1','$ 1.890.000','12 cuotas de $ 157.500','ok','Entrega en 10 días · instalación incluida'],
+    ['#/maquina/m4','Granita · 3 tolvas','Máquina de granita 2','3 × 12 L · ficha técnica a completar con datos reales','máquina de granita 2','$ 2.360.000','12 cuotas de $ 196.666','ok','Entrega en 10 días · instalación incluida'],
+    ['#/maquinas','Granita · 4 tolvas','Máquina de granita 3','4 × 12 L · ficha técnica a completar con datos reales','máquina de granita 3','$ 3.120.000','12 cuotas de $ 260.000','bajo','A pedido · 30 días']
+  ];
+  return '<div class="hd-w hd-sec hd-bleed" style="width:1200px;margin:0 auto;padding:56px 0 0;display:flex;flex-direction:column;gap:20px">'+
+      '<div class="hd-in" style="display:flex;align-items:baseline;justify-content:space-between">'+
+        '<div style="display:flex;align-items:baseline;gap:16px">'+
+          '<h2 style="margin:0;font:700 26px/1.15 '+HD_F2+';letter-spacing:-.02em;color:#14161C">Máquinas</h2>'+
+          '<span class="hd-subttl" style="font:400 14px/1.4 '+HD_F1+';color:#5C6270">Importación directa · precio final, cuotas, garantía, instalación y service</span>'+
+        '</div>'+
+        '<a class="hd-seelink hd-fl" href="#/maquinas" style="font:600 13.5px/1 '+HD_F1+';color:#0055A0">Ver todas</a>'+
+      '</div>'+
+      '<p class="hd-maqsub only-m" style="display:none">Importación directa. Precio final, cuotas, garantía, instalación y service.</p>'+
+      '<div class="hd-maqgrid hd-row" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">'+
+        maq.map(function(m){
+          var col=m[7]==='ok'?'#12784A':'#B26A00';
+          return '<div data-go="'+m[0]+'" style="cursor:pointer;background:#fff;border:1px solid #E4E7EC;border-radius:12px;overflow:hidden;display:flex;flex-direction:column">'+
+            hph('foto — '+m[4],'','height:250px')+
+            '<div class="hd-cardbody" style="padding:18px;display:flex;flex-direction:column;gap:9px;flex:1">'+
+              '<span style="font:700 10.5px/1 '+HD_F1+';letter-spacing:.14em;text-transform:uppercase;color:#0055A0">'+esc(m[1])+'</span>'+
+              '<span class="hd-nm" style="font:700 20px/1.2 '+HD_F2+';letter-spacing:-.015em;color:#14161C">'+esc(m[2])+'</span>'+
+              '<span style="font:400 13px/1.45 '+HD_F1+';color:#5C6270">'+esc(m[3])+'</span>'+
+              '<div style="display:flex;align-items:baseline;gap:9px;margin-top:2px"><span class="hd-price" style="font:700 24px/1 '+HD_F2+';letter-spacing:-.02em;color:#14161C;font-variant-numeric:tabular-nums">'+m[5]+'</span><span class="hd-unit" style="font:400 12.5px/1 '+HD_F1+';color:#5C6270;white-space:nowrap">precio final</span></div>'+
+              '<span style="font:600 13.5px/1.3 '+HD_F1+';color:#0055A0;font-variant-numeric:tabular-nums">'+esc(m[6])+'</span>'+
+              '<span style="display:inline-flex;align-items:center;gap:7px;font:500 12.5px/1 '+HD_F1+';color:'+col+';height:19px;white-space:nowrap;overflow:hidden"><span style="width:7px;height:7px;border-radius:50%;background:'+col+'"></span>'+esc(m[8])+'</span>'+
+              '<div style="display:flex;gap:8px;margin-top:auto;padding-top:4px"><button class="hd-b" data-go="'+m[0]+'" style="flex:1;height:48px;border:0;border-radius:8px;background:#0055A0;color:#fff;font:600 15px/1 '+HD_F1+';cursor:pointer">Ver la máquina</button><button class="hd-consultar hd-bs" data-go="#/nosotros" style="height:48px;padding:0 18px;border:1.5px solid #E4E7EC;border-radius:8px;background:#fff;color:#45495A;font:600 14.5px/1 '+HD_F1+';cursor:pointer">Consultar</button></div>'+
+            '</div>'+
+          '</div>';
+        }).join('')+
+      '</div>'+
+    '</div>';
+}
+
+function hdRubro(){
+  var r=[['Cafés y panaderías','mostrador de café'],['Comida rápida','local de comida rápida'],['Restaurantes','postre emplatado'],
+         ['Hoteles','buffet de hotel'],['Entretenimiento','parque o cine'],['Kioscos','kiosco con máquina']];
+  return '<div class="hd-rubro" style="margin-top:56px;background:#FBF7EF">'+
+      '<div class="hd-w hd-rubrogrid" style="width:1200px;margin:0 auto;padding:56px 0;display:grid;grid-template-columns:340px 1fr;gap:56px;align-items:center">'+
+        '<div style="display:flex;flex-direction:column;gap:10px">'+
+          '<h2 style="margin:0;font:700 26px/1.15 '+HD_F2+';letter-spacing:-.02em;color:#14161C">Comprá por rubro</h2>'+
+          '<p style="margin:0;font:400 14.5px/1.6 '+HD_F1+';color:#5C6270">¿No sabés por dónde empezar? Elegí tu tipo de negocio y te armamos el kit de arranque: máquina, insumos y descartables.</p>'+
+          '<a class="hd-fl" href="#/nosotros" style="font:600 14px/1 '+HD_F1+';color:#0055A0;margin-top:4px">Hablar con un asesor →</a>'+
+        '</div>'+
+        '<div class="hd-rubroinner" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px">'+
+          r.map(function(x){
+            return '<a class="hd-card" href="#/insumos" style="background:#fff;border:1px solid #EDE4D4;border-radius:12px;overflow:hidden;display:flex;flex-direction:column">'+
+              hph('foto — '+x[1],'','height:96px')+
+              '<div style="padding:14px 16px 16px;display:flex;flex-direction:column;gap:5px;flex:1"><span style="font:600 14.5px/1.3 '+HD_F1+';color:#14161C">'+esc(x[0])+'</span><span style="font:600 12.5px/1 '+HD_F1+';color:#0055A0;margin-top:auto">Ver el kit →</span></div>'+
+            '</a>';
+          }).join('')+
+        '</div>'+
+      '</div>'+
+    '</div>';
+}
+
+function hdComo(){
+  var pasos=[['Elegí insumos o máquina','Agregás al carrito desde la grilla, con el formato y la cantidad que necesitás.'],
+             ['Pagás con tarjeta o transferencia','Cargás CUIT y datos de facturación una sola vez; después comprás en dos clics.'],
+             ['Te lo llevamos y te asesoramos','Envío a todo el país, instalación de la máquina y soporte técnico propio.']];
+  return '<div class="hd-w" style="width:1200px;margin:0 auto;padding:56px 0">'+
+      '<div class="hd-comogrid" style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center">'+
+        '<div style="display:flex;flex-direction:column;gap:22px">'+
+          '<h2 style="margin:0;font:700 26px/1.15 '+HD_F2+';letter-spacing:-.02em;color:#14161C">Cómo comprar</h2>'+
+          '<div style="display:flex;flex-direction:column;gap:18px">'+
+            pasos.map(function(p,i){
+              return '<div style="display:flex;gap:16px;align-items:flex-start"><span style="flex:none;width:30px;height:30px;border-radius:50%;background:#0055A0;color:#fff;display:grid;place-items:center;font:700 13px/1 '+HD_F1+'">'+(i+1)+'</span><div><span style="font:600 15.5px/1.35 '+HD_F1+';color:#14161C">'+esc(p[0])+'</span><br><span style="font:400 14px/1.55 '+HD_F1+';color:#5C6270">'+esc(p[1])+'</span></div></div>';
+            }).join('')+
+          '</div>'+
+        '</div>'+
+        '<div class="only-d" style="border-radius:16px 16px 0 0;overflow:hidden">'+hph('foto — mostrador de un cliente<br>con la máquina en uso · 572 × 330','','height:330px;border-radius:16px')+'</div>'+
+      '</div>'+
+    '</div>';
+}
+
+function hdServicios(){
+  var s=[['Hasta 12 cuotas','Todas las tarjetas'],['Envío a todo el país','48 h en AMBA'],['Soporte técnico','Service propio'],
+         ['Asesoramiento','Te ayudamos a arrancar'],['Medios de pago','Tarjeta y transferencia'],['30 años','Fabricación propia']];
+  return '<div style="background:#fff;border-top:1px solid #E4E7EC">'+
+      '<div class="hd-w hd-servgrid" style="width:1200px;margin:0 auto;padding:26px 0;display:grid;grid-template-columns:repeat(6,1fr);gap:24px">'+
+        s.map(function(x){
+          return '<div style="display:flex;flex-direction:column;gap:3px"><span style="font:600 13.5px/1.3 '+HD_F1+';color:#14161C">'+esc(x[0])+'</span><span style="font:400 12.5px/1.45 '+HD_F1+';color:#5C6270">'+esc(x[1])+'</span></div>';
+        }).join('')+
+      '</div>'+
+    '</div>';
+}
+
+function hdFooter(){
+  var cols=[['Tienda',[['Insumos','#/insumos'],['Máquinas','#/maquinas'],['Granitas','#/granitas'],['Descartables','#/insumos'],['Ofertas','#/ofertas']]],
+            ['Tasker',[['Somos Tasker','#/nosotros'],['Producción a terceros','#/nosotros'],['Distribuidores','#/nosotros'],['Contacto','#/nosotros']]],
+            ['Tu cuenta',[['Mis pedidos','#/cuenta'],['Volver a pedir','#/volver'],['Datos de facturación','#/cuenta'],['Preguntas frecuentes','#/nosotros']]]];
+  return '<div class="hd-foot" style="background:#003466;padding:0 0 26px">'+
+      '<div class="only-d">'+hdWaveFootD()+'</div>'+
+      '<div class="only-m">'+hdWaveFootM()+'</div>'+
+      '<div style="height:40px"></div>'+
+      '<div class="hd-w hd-footgrid" style="width:1200px;margin:0 auto;display:grid;grid-template-columns:340px repeat(3,1fr);gap:48px">'+
+        '<div class="hd-flogo" style="display:flex;flex-direction:column;gap:16px">'+
+          '<a href="#/home" aria-label="Tasker · ir a la portada" style="align-self:flex-start">'+logoSVG('logo-azul900','hdf')+'</a>'+
+          '<p style="margin:0;font:400 13.5px/1.6 '+HD_F1+';color:#A9C7E4">Elaboramos con leche fluida y crema de leche de la pampa argentina, sin grasas vegetales. Líderes en cremosidad.</p>'+
+        '</div>'+
+        cols.map(function(c){
+          return '<div style="display:flex;flex-direction:column;gap:11px">'+
+            '<span style="font:700 11px/1 '+HD_F1+';letter-spacing:.14em;text-transform:uppercase;color:#5E93C2">'+esc(c[0])+'</span>'+
+            c[1].map(function(l){return '<a href="'+l[1]+'" style="font:400 13.5px/1 '+HD_F1+';color:#fff">'+esc(l[0])+'</a>'}).join('')+
+          '</div>';
+        }).join('')+
+      '</div>'+
+      '<div class="hd-w hd-footlegal" style="width:1200px;margin:26px auto 0;border-top:1px solid #14477D;padding-top:18px;display:flex;justify-content:space-between;font:400 12.5px/1.5 '+HD_F1+';color:#5E93C2">'+
+        '<span>Tasker S.A. · Buenos Aires, Argentina</span>'+
+        '<span>Precios en pesos con IVA incluido · Imágenes de referencia</span>'+
+      '</div>'+
+    '</div>';
+}
+
+function hdBottomBar(){
+  var t=cartTotals();
+  return '<div class="hd-bar only-m" style="display:none">'+
+      '<button class="hd-bs" data-go="#/volver" style="flex:1;height:46px;border:1.5px solid #E4E7EC;border-radius:8px;background:#fff;color:#45495A;font:600 13.5px/1 '+HD_F1+';cursor:pointer">Volver a pedir</button>'+
+      '<button class="hd-b" data-go="#/carrito" style="flex:1.4;height:46px;border:0;border-radius:8px;background:#0055A0;color:#fff;font:600 14px/1 '+HD_F1+';cursor:pointer">Ver el carrito · <span class="js-cartT">'+money(t.total)+'</span></button>'+
+    '</div>';
+}
+
+function viewHome(){
+  return '<div class="home-dc">'+
+    hdHeader()+hdHero()+hdCategorias()+hdOfertas()+hdPedidos()+hdMaquinas()+
+    hdRubro()+hdComo()+hdServicios()+hdFooter()+hdBottomBar()+
+  '</div>';
 }
 
 /* ================= MÁQUINAS ================= */
@@ -1127,6 +1561,9 @@ function render(){
   else if(r0==='home'||r0===''){app.innerHTML=viewHome();}
   else if(STUBS[r0]){app.innerHTML=viewStub(STUBS[r0][0],STUBS[r0][1]);}
   else {app.innerHTML=viewStub('Pantalla pendiente','Esta sección se arma en la próxima etapa.');}
+  /* la home trae su propio header y footer (copiados de la referencia),
+     así que el chrome global se oculta sólo en esa ruta */
+  document.body.classList.toggle('on-home', r0==='home'||r0==='');
   var route=r0==='producto'?'insumos':(r0==='maquina'?'maquinas':r0);
   Array.prototype.forEach.call(document.querySelectorAll('nav.main a'),function(a){a.classList.toggle('on',a.getAttribute('data-r')===route)});
   window.scrollTo(0,0);
@@ -1179,7 +1616,12 @@ document.addEventListener('click',function(e){
   }
   if(el=t.closest('[data-go]')){location.hash=el.getAttribute('data-go');suggClose();return}
   if(t.closest('#btnCart')){location.hash='#/carrito';return}
-  if(t.closest('#btnLogin')){openAuthModal();return}
+  if(t.closest('#btnLogin')||t.closest('.js-login')){openAuthModal();return}
+  if(el=t.closest('[data-hscroll]')){
+    var car=el.closest('.hd-sec').querySelector('.hd-ofbanners');
+    if(car) car.scrollBy({left:(+el.getAttribute('data-hscroll'))*600,behavior:'smooth'});
+    return;
+  }
   if(t.closest('#goSearch')){location.hash='#/insumos';suggClose();return}
   if(t.id==='fwrap'){state.drawer=false;render();return}
   if(!t.closest('.search')) suggClose();
@@ -1223,6 +1665,7 @@ $('#q').addEventListener('keydown',function(e){
 });
 document.addEventListener('submit',function(e){
   var fm=e.target;
+  if(fm.getAttribute('data-hq')){e.preventDefault();location.hash='#/insumos';return}
   if(fm.id==='checkout'){
     e.preventDefault();
     var t=cartTotals();
